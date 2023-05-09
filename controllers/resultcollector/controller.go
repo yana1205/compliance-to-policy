@@ -24,10 +24,13 @@ import (
 
 	c2pv1alpha1 "github.com/IBM/compliance-to-policy/api/v1alpha1"
 	"github.com/IBM/compliance-to-policy/controllers/utils"
+	"github.com/IBM/compliance-to-policy/controllers/utils/kcpclient"
 	"github.com/go-logr/logr"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/client-go/rest"
+	"k8s.io/client-go/tools/clientcmd"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
@@ -82,10 +85,28 @@ func (r *ResultCollectorReconciler) Reconcile(ctx context.Context, req ctrl.Requ
 		return ctrl.Result{}, nil
 	}
 
-	workspaceObjs, err := utils.GetWorkspaces(ctx, *r.Cfg, "root:espw")
+	espwClientConfig := kcpclient.NewConfig(*r.Cfg, "root:espw")
+	mbPreInformer, err := informerManager.GetMbPreInformer(ctx, &espwClientConfig)
+	if err != nil {
+		return utils.HandleError(logger, err, fmt.Sprintf("Failed to get mbPreInformer %v", cr))
+	}
+	rawWorkspaces, err := mbPreInformer.Lister().List(labels.Everything())
 	if err != nil {
 		return utils.HandleError(logger, err, fmt.Sprintf("Failed to get workspaces %v", cr))
 	}
+
+	workspaceObjs := []utils.Workspace{}
+	for _, rawWs := range rawWorkspaces {
+		syncTargetname, ok := rawWs.GetAnnotations()["edge.kcp.io/sync-target-name"]
+		if !ok {
+			syncTargetname = ""
+		}
+		workspaceObjs = append(workspaceObjs, utils.Workspace{
+			Name:           "root:espw:" + rawWs.Name,
+			SyncTargetName: syncTargetname,
+		})
+	}
+
 	logger.V(3).Info("--- Start collecting generated reports from workspaces ---")
 
 	r.run(ctx, cr, workspaceObjs)
@@ -148,4 +169,12 @@ func (w *Worker) start(r *ResultCollectorReconciler, cr c2pv1alpha1.ResultCollec
 			}
 		}
 	}
+}
+
+func getClusterConfigFromFile(kubeconfigPath string) (*rest.Config, error) {
+	config, err := clientcmd.BuildConfigFromFlags("", kubeconfigPath)
+	if err != nil {
+		return nil, err
+	}
+	return config, nil
 }

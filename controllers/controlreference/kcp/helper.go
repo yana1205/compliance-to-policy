@@ -7,9 +7,9 @@ import (
 	"time"
 
 	c2pv1alpha1 "github.com/IBM/compliance-to-policy/api/v1alpha1"
-	edgev1alpha1 "github.com/IBM/compliance-to-policy/controllers/edge.kcp.io/v1alpha1"
 	"github.com/IBM/compliance-to-policy/controllers/utils/kcpclient"
 	"github.com/IBM/compliance-to-policy/pkg"
+	edgev1alpha1 "github.com/kcp-dev/edge-mc/pkg/apis/edge/v1alpha1"
 	kcpv1alpha1 "github.com/kcp-dev/kcp/pkg/apis/apis/v1alpha1"
 	tenancyv1alpha1 "github.com/kcp-dev/kcp/pkg/apis/tenancy/v1alpha1"
 	"k8s.io/apimachinery/pkg/api/errors"

@@ -42,6 +42,13 @@ type KcpClient struct {
 	apixClientSet   *apix.Clientset
 }
 
+func NewConfig(cfg rest.Config, workspace string) rest.Config {
+	hosts := strings.Split(cfg.Host, "/")
+	hosts[len(hosts)-1] = workspace
+	cfg.Host = strings.Join(hosts, "/")
+	return cfg
+}
+
 func NewKcpClient(cfg rest.Config, workspace string) (KcpClient, error) {
 
 	var kcpClient KcpClient

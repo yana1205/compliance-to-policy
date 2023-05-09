@@ -28,7 +28,6 @@ import (
 	"strings"
 
 	c2pv1alpha1 "github.com/IBM/compliance-to-policy/api/v1alpha1"
-	edge "github.com/IBM/compliance-to-policy/controllers/edge.kcp.io/v1alpha1"
 	"github.com/IBM/compliance-to-policy/controllers/utils/kcpclient"
 	"github.com/IBM/compliance-to-policy/pkg"
 	"github.com/IBM/compliance-to-policy/pkg/oscal"
@@ -36,6 +35,7 @@ import (
 	typesoscal "github.com/IBM/compliance-to-policy/pkg/types/oscal"
 	cd "github.com/IBM/compliance-to-policy/pkg/types/oscal/componentdefinition"
 	"github.com/go-logr/logr"
+	edge "github.com/kcp-dev/edge-mc/pkg/apis/edge/v1alpha1"
 	"gopkg.in/src-d/go-git.v4"
 	githttp "gopkg.in/src-d/go-git.v4/plumbing/transport/http"
 	"k8s.io/apimachinery/pkg/api/errors"

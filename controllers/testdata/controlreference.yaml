@@ -21,7 +21,7 @@ spec:
           - add-chrony
           - install-odf-lvm-operator
   policyResources: 
-    url: https://github.com/yana1205/-policy-collection-resources-2/resources
+    url: https://github.com/yana1205/policy-collection-resources/resources
   target:
     namespace: default
       

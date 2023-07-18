@@ -15,7 +15,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}-ocm-status-collector
+  IMAGE_NAME: ${{ github.repository }}-ocm-status-collector2
 
 jobs:
   build-and-push-image:

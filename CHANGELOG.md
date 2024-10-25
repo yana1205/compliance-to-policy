@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.4.1-rc.3 (2024-10-25)
+
+### Chore
+
+* chore: update release action for rc ([`c46ea91`](https://github.com/yana1205/compliance-to-policy/commit/c46ea911d590ed183e138db3724ecaaff92275da))
+
+### Feature
+
+* feat: tmp ([`1f0326f`](https://github.com/yana1205/compliance-to-policy/commit/1f0326f6895e693e09e14aa93871b9144086992a))
+
 ## v0.4.1-rc.2 (2024-10-25)
 
 ## v0.4.1-rc.1 (2024-10-25)
@@ -8,9 +18,45 @@
 
 * chore: add release branch strategy ([`bcea74d`](https://github.com/yana1205/compliance-to-policy/commit/bcea74d8572e01a1e34e39a01243797c063c057c))
 
+### Documentation
+
+* docs: removes CODE_OF_CONDUCT.md (#24)
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt; ([`ea1915f`](https://github.com/yana1205/compliance-to-policy/commit/ea1915f1aa93cf34973245b71136803bb212ebb9))
+
 ### Feature
 
 * feat: add local-definitions ([`6dcc049`](https://github.com/yana1205/compliance-to-policy/commit/6dcc049eac142263a81fc04c9f5757c2d9b50d2a))
+
+* feat: enhance release management (enable GitHub release and publish to PyPI) (#29)
+
+* fix: search key for rule should be Rule_Id (#28)
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
+
+* feat: add release automation (#28)
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
+
+* fix: manually install detect-secret to manage direct dependency packages out side Pypi (#28)
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
+
+* fix: Logo needs to be referenced by full url (#28)
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
+
+* fix: makefile for UT and trestle verion in UT (#28)
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
+
+* fix: replace namespace from ibm.github.com to oscal-compass.github.io (#28)
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
+
+---------
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt; ([`1ebcfd8`](https://github.com/yana1205/compliance-to-policy/commit/1ebcfd8f5d7cc1e76497029280d269b1a5c84c92))
 
 ### Unknown
 
@@ -57,48 +103,6 @@ Signed-off-by: Lou DeGenaro &lt;lou.degenaro@gmail.com&gt;
 Signed-off-by: Lou DeGenaro &lt;lou.degenaro@gmail.com&gt;
 Signed-off-by: Yuji Watanabe &lt;muew@jp.ibm.com&gt;
 Co-authored-by: Yuji Watanabe &lt;muew@jp.ibm.com&gt; ([`3c9e94e`](https://github.com/yana1205/compliance-to-policy/commit/3c9e94e4f38d0125b14ccb3f5d8f19e96b917179))
-
-## v0.4.0 (2024-08-29)
-
-### Documentation
-
-* docs: removes CODE_OF_CONDUCT.md (#24)
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt; ([`ea1915f`](https://github.com/yana1205/compliance-to-policy/commit/ea1915f1aa93cf34973245b71136803bb212ebb9))
-
-### Feature
-
-* feat: enhance release management (enable GitHub release and publish to PyPI) (#29)
-
-* fix: search key for rule should be Rule_Id (#28)
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
-
-* feat: add release automation (#28)
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
-
-* fix: manually install detect-secret to manage direct dependency packages out side Pypi (#28)
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
-
-* fix: Logo needs to be referenced by full url (#28)
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
-
-* fix: makefile for UT and trestle verion in UT (#28)
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
-
-* fix: replace namespace from ibm.github.com to oscal-compass.github.io (#28)
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt;
-
----------
-
-Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt; ([`1ebcfd8`](https://github.com/yana1205/compliance-to-policy/commit/1ebcfd8f5d7cc1e76497029280d269b1a5c84c92))
-
-### Unknown
 
 * Merge pull request #26 from rahearn/update-trestle
 

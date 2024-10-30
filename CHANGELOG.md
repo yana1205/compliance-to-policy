@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.4.1-rc.4 (2024-10-30)
+
+### Feature
+
+* feat: add findings
+
+Signed-off-by: Takumi Yanagawa &lt;yana@jp.ibm.com&gt; ([`ea97fb8`](https://github.com/yana1205/compliance-to-policy/commit/ea97fb82217f4149c86f95f7dc00e897af9c6e24))
+
 ## v0.4.1-rc.3 (2024-10-25)
 
 ### Chore
